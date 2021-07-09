@@ -29,9 +29,8 @@ export const LocationForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      //console.log(values);
       const res = await getWeatherForcast(values.city);
-      //console.log(res);
+      console.log(res);
     },
   });
   return (
@@ -67,7 +66,6 @@ export const LocationForm = () => {
               variant="contained"
               fullWidth
               type="submit"
-              fullWidth
               size="medium"
             >
               Check weather!
