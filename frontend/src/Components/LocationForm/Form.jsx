@@ -21,7 +21,7 @@ const validationSchema = yup.object({
   city: yup.string("Enter city name").required("City is required"),
 });
 
-export const LocationForm = () => {
+export const LocationForm = ({ getForecast }) => {
   const classes = useStyles();
   const formik = useFormik({
     initialValues: {
@@ -29,8 +29,7 @@ export const LocationForm = () => {
     },
     validationSchema: validationSchema,
     onSubmit: async (values) => {
-      const res = await getWeatherForcast(values.city);
-      console.log(res);
+      getForecast(values.city);
     },
   });
   return (
