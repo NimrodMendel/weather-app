@@ -5,7 +5,6 @@ import Typography from "@material-ui/core/Typography/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import * as yup from "yup";
-import getWeatherForcast from "../../Lib/api";
 
 const useStyles = makeStyles((theme) => ({
   root: {

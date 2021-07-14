@@ -1,56 +1,44 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core";
-import Grid from "@material-ui/core/Grid/Grid";
-import Card from "@material-ui/core/Card/Card";
-import CardContent from "@material-ui/core/CardContent";
-import Typography from "@material-ui/core/Typography/Typography";
+import { Grid, makeStyles, Typography } from "@material-ui/core";
+import { Today } from "../Today/Today";
+import { WeatherCard } from "../WeatherCard/WeatherCard";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    minWidth: 275,
-    padding: theme.spacing(2),
+  daysForecast: {
     marginTop: theme.spacing(4),
+  },
+  heading: {
+    marginTop: theme.spacing(5),
     textAlign: "center",
-  },
-  hotWeather: {
-    color: "#CD113B",
-  },
-  coldWeather: {
-    color: "#39A2DB",
   },
 }));
 
 export const Forecast = ({ forecast }) => {
   const classes = useStyles();
-  console.log(forecast);
+  const futureForecast = forecast.slice(1, 4);
+
   return (
     <>
+      <Typography className={classes.heading} variant="h4">
+        Today's forecast:
+      </Typography>
+      <Today todaysForecast={forecast[0]} />
+      <Typography className={classes.heading} variant="h4">
+        Forecast for the next days:
+      </Typography>
       <Grid
         container
+        calssName={classes.daysForecast}
         direction="row"
-        justifyContent="center"
+        justifyContent="space-evenly"
         alignItems="center"
+        spacing={6}
       >
-        <Grid item>
-          <Card className={classes.root}>
-            <CardContent>
-              <Typography variant="h5" component="h2">
-                {forecast[0].applicable_date}
-              </Typography>
-              <Typography
-                variant="h3"
-                component="p"
-                className={
-                  forecast[0].the_temp >= 23
-                    ? classes.hotWeather
-                    : classes.coldWeather
-                }
-              >
-                {Math.floor(forecast[0].the_temp)}
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
+        {futureForecast.map((day, idx) => (
+          <Grid item>
+            <WeatherCard key={idx} forecast={day} />
+          </Grid>
+        ))}
       </Grid>
     </>
   );

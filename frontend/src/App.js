@@ -4,6 +4,7 @@ import { ApplicationBar } from "./Components/ApplicationBar/ApplicationBar";
 import { ErrorMessage } from "./Components/ErrorMessage/ErrorMessage";
 import { Spinner } from "./Components/Spinner/Spinner";
 import { Forecast } from "./Components/Forecast/Forecast";
+import { Footer } from "./Components/Footer/Footer";
 import getWeatherForcast from "./Lib/api";
 import Grid from "@material-ui/core/Grid/Grid";
 
@@ -54,6 +55,7 @@ function App() {
           </Grid>
         )}
       </Grid>
+      <Footer />
     </>
   );
 }
