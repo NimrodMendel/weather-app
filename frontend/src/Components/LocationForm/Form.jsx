@@ -45,7 +45,7 @@ export const LocationForm = ({ getForecast }) => {
           <Typography variant="h3">Weather App</Typography>
         </Grid>
         <Grid item>
-          <form onSubmit={formik.handleSubmit}>
+          <form onSubmit={formik.handleSubmit} data-testid="location-form">
             <TextField
               id="city"
               name="city"
@@ -60,9 +60,11 @@ export const LocationForm = ({ getForecast }) => {
               fullWidth
             />
             <Button
+              data-testid="submit-btn"
               className={classes.btn}
               variant="contained"
               fullWidth
+              name="submit"
               type="submit"
               size="medium"
             >

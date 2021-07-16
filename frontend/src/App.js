@@ -19,8 +19,8 @@ function App() {
     setForecast([]);
     const data = await getWeatherForcast(city);
 
-    if (!data) {
-      setError(`Couldn't get forecast for: ${city}`);
+    if (data.error) {
+      setError(data.error);
       setForecast({});
     } else {
       setForecast(data.consolidated_weather);

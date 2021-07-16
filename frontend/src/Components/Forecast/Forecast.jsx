@@ -28,7 +28,7 @@ export const Forecast = ({ forecast }) => {
       </Typography>
       <Grid
         container
-        calssName={classes.daysForecast}
+        className={classes.daysForecast}
         direction="row"
         justifyContent="space-evenly"
         alignItems="center"

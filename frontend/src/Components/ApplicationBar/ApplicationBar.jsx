@@ -16,7 +16,11 @@ export const ApplicationBar = () => {
   const classes = useStyles();
 
   return (
-    <AppBar position="static" className={classes.root}>
+    <AppBar
+      position="static"
+      className={classes.root}
+      data-testid="application-bar"
+    >
       <Toolbar variant="regular">
         <Typography variant="h5">React Weather App</Typography>
       </Toolbar>

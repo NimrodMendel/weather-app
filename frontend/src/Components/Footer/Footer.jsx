@@ -24,6 +24,7 @@ export const Footer = () => {
         direction="row"
         justifyContent="center"
         alignItems="center"
+        data-testid="footer"
       >
         <Grid item>
           <BottomNavigation className={classes.container}>
