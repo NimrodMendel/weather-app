@@ -50,6 +50,7 @@ export const WeatherCard = ({ forecast }) => {
   return (
     <>
       <Grid
+        data-testid="weather-card"
         container
         direction="row"
         justifyContent="center"
@@ -59,30 +60,31 @@ export const WeatherCard = ({ forecast }) => {
           <Card className={classes.root}>
             <CardContent>
               {the_temp >= 23 ? (
-                <WiDaySunny className={classes.icon} />
+                <WiDaySunny data-testid="sun-icon" className={classes.icon} />
               ) : (
-                <WiRainMix className={classes.icon} />
+                <WiRainMix data-testid="rain-icon" className={classes.icon} />
               )}
-              <Typography variant="h5" component="h2">
+              <Typography variant="h5" component="h2" data-testid="date">
                 {new Date(applicable_date).toDateString()}
               </Typography>
               <Typography
                 variant="h2"
                 component="h2"
+                data-testid="temp"
                 className={
                   the_temp >= 23 ? classes.hotWeather : classes.coldWeather
                 }
               >
                 <em>{Math.floor(the_temp)}</em>
               </Typography>
-              <Typography variant="h6" component="h5">
+              <Typography data-testid="state-name" variant="h6" component="h5">
                 {weather_state_name}
               </Typography>
               <Grid
                 container
                 className={classes.weatherInfo}
                 direction="row"
-                justifyContent="start"
+                justifyContent="flex-start"
                 alignItems="center"
                 spacing={2}
               >
@@ -90,7 +92,7 @@ export const WeatherCard = ({ forecast }) => {
                   <WiThermometer className={classes.icon} />
                 </Grid>
                 <Grid item>
-                  <Typography variant="body1">
+                  <Typography data-testid="max-temp" variant="body1">
                     <strong>Max temperature:</strong>{" "}
                     <em>{Math.floor(max_temp)}</em>
                   </Typography>
@@ -99,7 +101,7 @@ export const WeatherCard = ({ forecast }) => {
               <Grid
                 container
                 direction="row"
-                justifyContent="start"
+                justifyContent="flex-start"
                 alignItems="center"
                 spacing={2}
               >
@@ -107,7 +109,7 @@ export const WeatherCard = ({ forecast }) => {
                   <WiThermometerExterior className={classes.icon} />
                 </Grid>
                 <Grid item>
-                  <Typography variant="body1">
+                  <Typography variant="body1" data-testid="min-temp">
                     <strong>Min temperature:</strong>{" "}
                     <em>{Math.floor(min_temp)}</em>
                   </Typography>
@@ -116,7 +118,7 @@ export const WeatherCard = ({ forecast }) => {
               <Grid
                 container
                 direction="row"
-                justifyContent="start"
+                justifyContent="flex-start"
                 alignItems="center"
                 spacing={2}
               >
@@ -124,7 +126,7 @@ export const WeatherCard = ({ forecast }) => {
                   <WiHumidity className={classes.icon} />
                 </Grid>
                 <Grid item>
-                  <Typography variant="body1">
+                  <Typography variant="body1" data-testid="humidity">
                     <strong>Humidity:</strong> <em>{humidity}</em>
                   </Typography>
                 </Grid>

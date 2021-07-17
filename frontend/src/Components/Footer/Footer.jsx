@@ -2,7 +2,6 @@ import React from "react";
 import {
   Grid,
   makeStyles,
-  Typography,
   BottomNavigation,
 } from "@material-ui/core";
 
@@ -28,9 +27,7 @@ export const Footer = () => {
       >
         <Grid item>
           <BottomNavigation className={classes.container}>
-            <Typography variant="body1" component="p">
-              2021 Nimrod Mendel
-            </Typography>
+            <p>2021 Nimrod Mendel</p>
           </BottomNavigation>
         </Grid>
       </Grid>

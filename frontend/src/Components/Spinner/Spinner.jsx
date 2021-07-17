@@ -12,7 +12,11 @@ export const Spinner = () => {
   const classes = useStyles();
   return (
     <>
-      <CircularProgress color="primary" className={classes.spinner} />
+      <CircularProgress
+        data-testid="spinner"
+        color="primary"
+        className={classes.spinner}
+      />
     </>
   );
 };

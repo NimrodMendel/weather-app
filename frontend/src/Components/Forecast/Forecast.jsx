@@ -22,12 +22,16 @@ export const Forecast = ({ forecast }) => {
       <Typography className={classes.heading} variant="h4">
         Today's forecast:
       </Typography>
-      <Today todaysForecast={forecast[0]} />
+      <div data-testid="today">
+        <Today todaysForecast={forecast[0]} />
+      </div>
+
       <Typography className={classes.heading} variant="h4">
         Forecast for the next days:
       </Typography>
       <Grid
         container
+        data-testid="forecasts"
         className={classes.daysForecast}
         direction="row"
         justifyContent="space-evenly"
@@ -35,7 +39,7 @@ export const Forecast = ({ forecast }) => {
         spacing={6}
       >
         {futureForecast.map((day, idx) => (
-          <Grid item>
+          <Grid item data-testid="future-forecast">
             <WeatherCard key={idx} forecast={day} />
           </Grid>
         ))}
